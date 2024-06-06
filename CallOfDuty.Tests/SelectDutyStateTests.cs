@@ -66,6 +66,14 @@ namespace CallOfDuty.Tests
             Assert.That(model.CountApproved, Is.EqualTo(0));
         }
 
+        //[Test]
+        //public void SelectDuty_AfterRejectAllStudents()
+        //{
+        //    foreach (var stud in db.Students)
+        //        model.RejectAndGetAnotherStudent(stud);
+        //    Assert.That(model.CountRejected, Is.EqualTo(db.Students.Count));
+        //}
+
         [Test]
         public void SelectDuty_AfterRejectGetAnotherOneStudent()
         {

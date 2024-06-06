@@ -27,7 +27,7 @@ try
             continue;
         }
         string action = cols[1];
-        if (action != "+" && action != "-")
+        if (action != "+" && action != "-" && action != "?")
         {
             Console.WriteLine("Действие должно обозначаться как + или -");
             continue;
@@ -37,6 +37,7 @@ try
         {
             if (action == "+")
                 todayDuty.Approve(todayDuty.Students[index]);
+         
             else
                 todayDuty.RejectAndGetAnotherStudent(todayDuty.Students[index]);
         }
