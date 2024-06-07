@@ -1,5 +1,6 @@
-﻿ 
-namespace CallOfDuty
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace CallOfDuty.DB
 {
     public class StudentRepository
     {
@@ -19,6 +20,22 @@ namespace CallOfDuty
                 var cols = line.Split(';');
                 Students.Add(new Student { Name = cols[0], Info = cols[1] });
             }
-        }        
+        }
+
+        public Student Create()
+        {
+            Student student = new Student { };
+            Students.Add(student);
+            return student;
+        }
+
+        public bool Update(Student student)
+        {
+            if (Students.Contains(student))
+                Save();
+            else 
+                return false;
+            return true;
+        }
     }
 }

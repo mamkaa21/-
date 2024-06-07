@@ -1,3 +1,5 @@
+using CallOfDuty.DB;
+
 namespace CallOfDuty.Tests
 {
     public class ModelTests
