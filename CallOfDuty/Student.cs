@@ -1,4 +1,4 @@
-﻿namespace CallOfDuty.DB
+﻿namespace CallOfDuty
 {
     public class Student
     {

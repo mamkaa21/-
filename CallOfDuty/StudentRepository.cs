@@ -1,6 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Text.Json;
 
-namespace CallOfDuty.DB
+namespace CallOfDuty
 {
     public class StudentRepository
     {
@@ -33,9 +33,17 @@ namespace CallOfDuty.DB
         {
             if (Students.Contains(student))
                 Save();
-            else 
+            else
                 return false;
             return true;
+        }
+
+        void Save() 
+        {
+            using (FileStream fs = new FileStream("duty.json", FileMode.Create))
+            {
+                JsonSerializer.Serialize(fs);
+            }
         }
     }
 }

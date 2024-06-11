@@ -1,5 +1,4 @@
 ﻿using CallOfDuty;
-using CallOfDuty.DB;
 using System;
 
 string file = "Students.txt";

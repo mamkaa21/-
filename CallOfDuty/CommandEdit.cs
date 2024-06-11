@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CallOfDuty.Command
+namespace CallOfDuty
 {
-    class CommandChooseDuty
+    class CommandEdit
     {
-
     }
 }

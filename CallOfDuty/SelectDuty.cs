@@ -1,6 +1,4 @@
-﻿using CallOfDuty.DB;
-
-namespace CallOfDuty
+﻿namespace CallOfDuty
 {
     public class SelectDuty
     {

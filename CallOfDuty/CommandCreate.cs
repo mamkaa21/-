@@ -1,11 +1,10 @@
-﻿using CallOfDuty.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CallOfDuty.Command
+namespace CallOfDuty
 {
     internal class CommandCreate : CommandUser
     {
