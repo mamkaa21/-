@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Xml.Linq;
 
 namespace CallOfDuty
 {
@@ -11,14 +12,23 @@ namespace CallOfDuty
             Students = new List<Student>();
         }
 
+      
         public StudentRepository(string file)
         {
             var lines = File.ReadAllLines(file);
             Students = new List<Student>(lines.Length);
-            foreach (var line in lines)
+           
+            if (!File.Exists("duty.json"))
+                Students = new List<Student>();
+            else
+            using (FileStream fs = new FileStream("duty.json", FileMode.OpenOrCreate))
             {
-                var cols = line.Split(';');
-                Students.Add(new Student { Name = cols[0], Info = cols[1] });
+               Students = JsonSerializer.Deserialize<List<Student>>(fs);
+               foreach (var line in lines)
+               {
+                   var cols = line.Split(';');
+                   Students.Add(new Student { Name = cols[0], Info = cols[1] });
+               }
             }
         }
 
@@ -38,11 +48,29 @@ namespace CallOfDuty
             return true;
         }
 
+        public List<Student> Search(string text)
+        {
+            List<Student> result = new();
+            foreach (var student in Students)
+            {
+                if (student.Name.Contains(text))
+                    result.Add(student);
+            }
+            return result;
+        }
+
+        public bool Delete(Student student)
+        {
+            Students.Remove(student);
+            Save();
+            return true;
+        }
+
         void Save() 
         {
             using (FileStream fs = new FileStream("duty.json", FileMode.Create))
             {
-                JsonSerializer.Serialize(fs);
+                JsonSerializer.Serialize(fs, Students);
             }
         }
     }

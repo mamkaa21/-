@@ -22,7 +22,7 @@ namespace CallOfDuty
             {
                 Console.WriteLine("введите команду");
                 descr = Console.ReadLine();
-                if (descr != "помогите")
+                if (descr == "помогите")
                     commandManager.ListCommand();
                 else
                     commandManager.Execute(descr);
