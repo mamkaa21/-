@@ -16,20 +16,20 @@ namespace CallOfDuty
         }
         public override void Execute()
         { 
-            Console.WriteLine("Поиск жертвы");
+            Console.WriteLine("Поиск студента");
             List<Student> Students = studentRepository.Search(Console.ReadLine());
             for (int i = 0; i < Students.Count; i++)
             {
                 Console.WriteLine($"{i + 1} {Students[i].Name} {Students[i].Info}");
-                Console.WriteLine("Какую жертву убить(удалить)?");
+                Console.WriteLine("Какого студента удалить?");
                 int.TryParse(Console.ReadLine(), out int delete);
                 if (Students.Count > delete - 1)
                 {
                     studentRepository.Delete(Students[i]);
-                    Console.WriteLine("Жертва умерла(удалена)");
+                    Console.WriteLine("Студент удален");
                 }
                 else
-                    Console.WriteLine("жертва осталась жива");
+                    Console.WriteLine("произошла ошибка");
             }                  
         }
     }

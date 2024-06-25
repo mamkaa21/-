@@ -29,7 +29,7 @@ namespace CallOfDuty.Tests
         [Test]
         public void StudentRepository_LoadStudentsFromFileAfterInit()
         {
-            string file = "testStudents.txt";
+            string file = "Students.txt";
             StudentRepository db = new StudentRepository(file);
             var students = GetTestStudents();
 

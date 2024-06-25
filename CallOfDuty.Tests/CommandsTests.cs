@@ -13,5 +13,15 @@ namespace CallOfDuty.Tests
         {
 
         }
+
+        [Test]
+        private void CommandCreateIsNotNull() 
+        {
+            string commandManager = new string;
+            Type type = commandManager.GetType();
+            var command = type.GetProperty("Create");
+            Assert.IsNotNull(command);
+            Assert.That(command.PropertyType, Is.EqualTo(typeof(string)));
+        }
     }
 }

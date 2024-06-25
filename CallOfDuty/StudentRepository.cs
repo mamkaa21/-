@@ -26,7 +26,7 @@ namespace CallOfDuty
                Students = JsonSerializer.Deserialize<List<Student>>(fs);
                foreach (var line in lines)
                {
-                   var cols = line.Split(';');
+                   var cols = line.Split(',');
                    Students.Add(new Student { Name = cols[0], Info = cols[1] });
                }
             }
@@ -68,7 +68,7 @@ namespace CallOfDuty
 
         void Save() 
         {
-            using (FileStream fs = new FileStream("duty.json", FileMode.Create))
+            using (FileStream fs = new FileStream("S.json", FileMode.Create))
             {
                 JsonSerializer.Serialize(fs, Students);
             }

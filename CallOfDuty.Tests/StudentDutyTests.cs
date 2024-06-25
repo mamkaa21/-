@@ -23,7 +23,7 @@ namespace CallOfDuty.Tests
         [TestCase(3)]
         public void StudentDuty_CanPickRandomStudent(int count)
         {
-            string file = "testStudents.txt";
+            string file = "Students.txt";
             StudentRepository db = new StudentRepository(file);
             StudentDuty studentDuty = new StudentDuty(db);
 
@@ -37,7 +37,7 @@ namespace CallOfDuty.Tests
         [Test]
         public void StudentDuty_ThrowExceptionOnPickRandomStudent_CountNotEnough()
         {
-            string file = "testStudents.txt";
+            string file = "Students.txt";
             StudentRepository db = new StudentRepository(file);
             StudentDuty studentDuty = new StudentDuty(db);
 
@@ -50,7 +50,7 @@ namespace CallOfDuty.Tests
         [TestCase(2, 1)]
         public void StudentDuty_StudentsHaveSomeApprovedDutyAfterInit(int studIndex, int dutyCount)
         {
-            string file = "testStudents.txt";
+            string file = "Students.txt";
             StudentRepository db = new StudentRepository(file);
             string folder = "test_dutys";
             StudentDuty studentDuty = new StudentDuty(db, folder);

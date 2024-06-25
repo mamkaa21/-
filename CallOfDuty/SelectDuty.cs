@@ -9,15 +9,12 @@
             this.studentDuty = studentDuty;
             Students = studentDuty.GetRandomStudents(2);
             foreach (Student student in Students)
-                Reject(student);
+            Reject(student);
         }
 
         Dictionary<Student, bool> studentStatus = new Dictionary<Student, bool>();
         public List<Student> Students { get; set; } = new();
         public int CountApproved { get => studentStatus.Values.Where(s => s).Count(); }
-        //public int CountRejected { get => studentStatus.Values.Where(s => !s).Count(); }
-
-
         public void Approve(Student student)
         {
             SetStudentStatus(student, true);
@@ -48,8 +45,6 @@
                 studentStatus.Add(student, status);
             studentStatus[student] = status;
         }
-
-      
 
         public void Save()
         {

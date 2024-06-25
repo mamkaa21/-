@@ -15,16 +15,16 @@ namespace CallOfDuty
         }
         public override void Execute()
         {
-            Console.WriteLine("Создать жертву");
+            Console.WriteLine("Создать студента");
             Student student = studentRepository.Create();
-            Console.WriteLine("Имя жертвы");
+            Console.WriteLine("Имя студента");
             student.Name = Console.ReadLine();
-            Console.WriteLine("Инфа о жертве");
+            Console.WriteLine("Информация о студенте");
             student.Info = Console.ReadLine();
             if (studentRepository.Update(student))
-                Console.WriteLine("жертва создана >$D");
+                Console.WriteLine("студент создан");
             else
-                Console.WriteLine("жертва смогла спастись и убежала");
+                Console.WriteLine("произошла ошибка");
         }
     }
 }

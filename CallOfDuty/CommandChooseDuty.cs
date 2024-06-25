@@ -61,11 +61,7 @@ namespace CallOfDuty
             catch (SelectDutyException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            catch (StudentDutyException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            }         
         }
     }
 }

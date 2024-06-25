@@ -16,23 +16,23 @@ namespace CallOfDuty
         }
         public override void Execute()
         {
-            Console.WriteLine("Поиск жертвы");
+            Console.WriteLine("Поиск студента");
             List<Student> Students = studentRepository.Search(Console.ReadLine());
             for (int i = 0; i < Students.Count; i++)
             {
                 Console.WriteLine($"{Students[i].Name} {Students[i].Info}");
-                Console.WriteLine("Какую жертву изменить?");
+                Console.WriteLine("Какого студента изменить?");
                 int.TryParse(Console.ReadLine(), out int edit);
                 if ((Students.Count > edit - 1))
                 {
-                    Console.WriteLine("Укажите имя жертвы...");
+                    Console.WriteLine("Укажите имя студента...");
                     Students[i].Name = Console.ReadLine();
-                    Console.WriteLine("Укажите информацию о жертве...");
+                    Console.WriteLine("Укажите информацию о студенте...");
                     Students[i].Info = Console.ReadLine();
                     if (studentRepository.Update(Students[i]))
-                        Console.WriteLine("Жертва готова!");
+                        Console.WriteLine("Студент обновлен!");
                     else
-                        Console.WriteLine("жертва отказалась от имени и убежала");
+                        Console.WriteLine("произошла ошибка");
                 }
             }
         }
